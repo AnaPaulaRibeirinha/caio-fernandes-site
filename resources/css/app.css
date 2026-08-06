@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
+
+:root {
+    --color-primary: #b8d334;
+    --color-primary-hover: #a4be27;
+    --color-primary-light: #e5efad;
+
+    --color-green: #206b3b;
+    --color-green-dark: #164d2b;
+    --color-green-light: #3f8c51;
+
+    --color-text: #18181b;
+    --color-muted: #71717a;
+    --color-background: #ffffff;
+    --color-surface: #f7f8f4;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container-site {
+    width: min(calc(100% - 2rem), 1280px);
+    margin-inline: auto;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding-block: 0.75rem;
+    color: #3f3f46;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition:
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.nav-link:hover {
+    color: var(--color-green);
+}
+
+.nav-link::after {
+    position: absolute;
+    right: 0;
+    bottom: 0.35rem;
+    left: 0;
+    height: 2px;
+    background: var(--color-primary);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link-active::after {
+    transform: scaleX(1);
+}
+
+.nav-link-active {
+    color: var(--color-green);
+}
+
+.dropdown-link {
+    display: block;
+    border-radius: 0.75rem;
+    padding: 0.8rem 1rem;
+    color: #3f3f46;
+    font-size: 0.875rem;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        padding-left 180ms ease;
+}
+
+.dropdown-link:hover {
+    padding-left: 1.25rem;
+    background: #f4f8e7;
+    color: var(--color-green);
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 4rem;
+    color: #27272a;
+    font-size: 1.35rem;
+    font-weight: 700;
+    transition:
+        color 180ms ease,
+        padding-left 180ms ease;
+}
+
+.mobile-nav-link:hover {
+    padding-left: 0.5rem;
+    color: var(--color-green);
+}
+
+.button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    border-radius: 0.75rem;
+    padding: 0.8rem 1.4rem;
+    background: var(--color-primary);
+    color: #1d2710;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition:
+        background-color 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.button-primary:hover {
+    background: var(--color-primary-hover);
+    box-shadow: 0 12px 30px rgba(73, 97, 20, 0.18);
+    transform: translateY(-2px);
+}
+
+.button-primary:active {
+    transform: translateY(0);
+}
+
+.button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d4d4d8;
+    padding: 0.8rem 1.4rem;
+    background: #ffffff;
+    color: #27272a;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition:
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.button-secondary:hover {
+    border-color: var(--color-green);
+    color: var(--color-green);
+    transform: translateY(-2px);
+}
+
+@media (min-width: 640px) {
+    .container-site {
+        width: min(calc(100% - 3rem), 1280px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-site {
+        width: min(calc(100% - 5rem), 1280px);
+    }
+}
+
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #84a315;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.section-eyebrow::before {
+    width: 1.75rem;
+    height: 2px;
+    background: var(--color-primary);
+    content: "";
+}
+
+.section-title {
+    max-width: 42rem;
+    color: #18181b;
+    font-size: clamp(2.25rem, 4vw, 3.75rem);
+    font-weight: 900;
+    line-height: 1.03;
+    letter-spacing: -0.05em;
+}
+
+.section-description {
+    max-width: 38rem;
+    color: #71717a;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    min-height: 6.5rem;
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.about-feature:hover {
+    border-color: #d8e79a;
+    box-shadow: 0 16px 40px rgba(31, 105, 57, 0.08);
+    transform: translateY(-3px);
+}
+
+.about-feature-icon {
+    display: flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.9rem;
+    background: #eef5c9;
+    color: var(--color-green);
+}
+
+.about-feature-title {
+    display: block;
+    color: #27272a;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.about-feature-description {
+    display: block;
+    margin-top: 0.35rem;
+    color: #71717a;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.project-filter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    border: 1px solid #e4e4e7;
+    border-radius: 9999px;
+    padding: 0.65rem 1.25rem;
+    background: #ffffff;
+    color: #52525b;
+    font-size: 0.875rem;
+    font-weight: 800;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.project-filter-button:hover {
+    border-color: #b8d334;
+    background: #f4f8e7;
+    color: var(--color-green);
+    transform: translateY(-2px);
+}
+
