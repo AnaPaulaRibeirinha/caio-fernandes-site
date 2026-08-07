@@ -144,7 +144,7 @@
             {{-- Botão desktop --}}
             <div class="hidden lg:block">
                 <a
-                    href="https://wa.me/5515999999999"
+                    href="https://wa.me/5515998546600"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="button-primary"
@@ -248,7 +248,7 @@
         </nav>
 
         <a
-            href="https://wa.me/5515999999999"
+            href="https://wa.me/5515998546600"
             target="_blank"
             rel="noopener noreferrer"
             class="button-primary mt-8 w-full justify-center"
