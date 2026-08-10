@@ -96,7 +96,7 @@
                 <div class="mt-7 flex flex-wrap items-center gap-3">
                     {{-- Instagram --}}
                     <a
-                        href="https://www.instagram.com/USUARIO_DO_CLIENTE"
+                        href="https://www.instagram.com/biologo_caio/?hl=pt-br"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="footer-social-link"
@@ -133,7 +133,7 @@
 
                     {{-- LinkedIn --}}
                     <a
-                        href="https://www.linkedin.com/in/USUARIO_DO_CLIENTE"
+                        href="https://www.linkedin.com/in/biologocaio/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="footer-social-link"
@@ -166,7 +166,7 @@
 
                     {{-- Facebook --}}
                     <a
-                        href="https://www.facebook.com/USUARIO_DO_CLIENTE"
+                        href="https://www.facebook.com/biologo.caio.fernandes/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="footer-social-link"
@@ -191,7 +191,7 @@
 
                     {{-- WhatsApp --}}
                     <a
-                        href="https://wa.me/5515999999999"
+                        href="https://wa.me/5515998546600"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="footer-social-link"
@@ -219,6 +219,61 @@
                             ></path>
                         </svg>
                     </a>
+
+                    {{-- X --}}
+                    <a
+                        href="https://x.com/Biologo_Caio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-social-link"
+                        aria-label="X de Caio Fernandes"
+                        title="X"
+                    >
+                        <svg
+                            class="h-5 w-5"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M18.244 2H21.5l-7.11 8.13L22.75 22h-6.546l-5.126-6.707L5.21 22H1.95l7.607-8.697L1.54 2h6.712l4.633 6.124L18.244 2Zm-1.143 18h1.803L7.271 3.895H5.337L17.101 20Z"
+                            />
+                        </svg>
+                    </a>
+
+                    {{-- YouTube --}}
+                    <a
+                        href="https://www.youtube.com/@biologo_caio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-social-link"
+                        aria-label="YouTube de Caio Fernandes"
+                        title="YouTube"
+                    >
+                        <svg
+                            class="h-5 w-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="3"
+                                y="6"
+                                width="18"
+                                height="12"
+                                rx="4"
+                            ></rect>
+
+                            <path
+                                d="m10 9 5 3-5 3V9Z"
+                                fill="currentColor"
+                                stroke="none"
+                            ></path>
+                        </svg>
+                    </a>
+
                 </div>
             </div>
 
