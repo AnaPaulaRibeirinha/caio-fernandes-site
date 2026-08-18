@@ -17,6 +17,8 @@
 
     @include('pages.home.sections.about')
 
+    @include('pages.home.sections.book')
+
     @include('pages.home.sections.projects')
 
     @include('pages.home.sections.clipping')

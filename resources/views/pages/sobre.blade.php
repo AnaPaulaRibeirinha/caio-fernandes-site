@@ -198,4 +198,6 @@
         </div>
     </section>
 
+    @include('pages.sobre.sections.book')
+
 @endsection

@@ -19,6 +19,7 @@ class Clipping extends Model
         'sort_order',
         'is_featured',
         'is_active',
+        'type',
     ];
 
     protected function casts(): array
