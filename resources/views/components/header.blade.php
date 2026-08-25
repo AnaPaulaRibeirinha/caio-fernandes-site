@@ -1,6 +1,14 @@
+@php
+    $darkHeader = request()->routeIs('clipping.*');
+@endphp
+
 <header
     x-data="{ mobileMenuOpen: false }"
-    class="absolute inset-x-0 top-0 z-50"
+    @class([
+        'absolute inset-x-0 top-0 z-50 transition-colors duration-300',
+        'text-white' => $darkHeader,
+        'text-zinc-900' => !$darkHeader,
+    ])
 >
     <div class="container-site">
         <div class="flex h-24 items-center justify-between gap-8">
@@ -15,11 +23,10 @@
                     <img
                         src="{{ asset('assets/images/logo/logo-caio-fernandes.png') }}"
                         alt="Biólogo Caio Fernandes"
-                        class="
-                            h-auto w-[145px] object-contain
-                            sm:w-[160px]
-                            xl:w-[175px]
-                        "
+                        @class([
+                            'h-auto w-[145px] object-contain sm:w-[160px] xl:w-[175px]',
+                            'brightness-0 invert' => $darkHeader,
+                        ])
                     >
                 </a>
 
@@ -57,14 +64,22 @@
             >
                 <a
                     href="{{ route('home') }}"
-                    class="nav-link {{ request()->routeIs('home') ? 'nav-link-active' : '' }}"
+                    @class([
+                        'nav-link',
+                        'nav-link-dark' => $darkHeader,
+                        'nav-link-active' => request()->routeIs('home'),
+                    ])
                 >
                     Home
                 </a>
 
                 <a
                     href="{{ route('sobre') }}"
-                    class="nav-link {{ request()->routeIs('sobre') ? 'nav-link-active' : '' }}"
+                    @class([
+                        'nav-link',
+                        'nav-link-dark' => $darkHeader,
+                        'nav-link-active' => request()->routeIs('sobre'),
+                    ])
                 >
                     Sobre
                 </a>
@@ -77,7 +92,10 @@
                 >
                     <button
                         type="button"
-                        class="nav-link flex items-center gap-1.5"
+                        @class([
+                            'nav-link flex items-center gap-1.5',
+                            'nav-link-dark' => $darkHeader,
+                        ])
                         @click="open = !open"
                         :aria-expanded="open"
                     >
@@ -153,21 +171,33 @@
 
                 <a
                     href="{{ route('projetos.index') }}"
-                    class="nav-link {{ request()->routeIs('projetos.*') ? 'nav-link-active' : '' }}"
+                    @class([
+                            'nav-link',
+                            'nav-link-dark' => $darkHeader,
+                            'nav-link-active' => request()->routeIs('projetos.*'),
+                        ])
                 >
                     Projetos
                 </a>
 
                 <a
                     href="{{ route('clipping.index') }}"
-                    class="nav-link {{ request()->routeIs('clipping.*') ? 'nav-link-active' : '' }}"
+                    @class([
+                        'nav-link',
+                        'nav-link-dark' => $darkHeader,
+                        'nav-link-active' => request()->routeIs('clipping.*'),
+                    ])
                 >
                     Clipping
                 </a>
 
                 <a
                     href="{{ route('contato') }}"
-                    class="nav-link {{ request()->routeIs('contato') ? 'nav-link-active' : '' }}"
+                    @class([
+                            'nav-link',
+                            'nav-link-dark' => $darkHeader,
+                            'nav-link-active' => request()->routeIs('contato.*'),
+                        ])
                 >
                     Contato
                 </a>

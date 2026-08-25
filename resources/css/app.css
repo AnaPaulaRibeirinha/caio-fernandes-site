@@ -301,3 +301,18 @@ a {
     transform: translateY(-2px);
 }
 
+.nav-link-dark {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.nav-link-dark:hover {
+    color: #ffffff;
+}
+
+.nav-link-dark.nav-link-active {
+    color: #d8e957;
+}
+
+.nav-link-dark::after {
+    background: #d8e957;
+}

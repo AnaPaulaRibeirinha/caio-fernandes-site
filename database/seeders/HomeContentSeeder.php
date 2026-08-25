@@ -144,47 +144,5 @@ class HomeContentSeeder extends Seeder
                 'is_active' => true,
             ]
         );
-
-        Clipping::query()->updateOrCreate(
-            ['slug' => 'importancia-do-planejamento-ambiental'],
-            [
-                'title' => 'A importância do planejamento ambiental para o desenvolvimento sustentável',
-                'source' => 'Portal Ambiental',
-                'published_at' => '2026-07-18',
-                'excerpt' => 'Como estudos técnicos e planejamento podem reduzir riscos e tornar os empreendimentos mais responsáveis.',
-                'image' => 'assets/images/clipping/clipping-destaque.jpg',
-                'sort_order' => 1,
-                'is_featured' => true,
-                'is_active' => true,
-            ]
-        );
-
-        Clipping::query()->updateOrCreate(
-            ['slug' => 'monitoramento-de-fauna-reduz-impactos'],
-            [
-                'title' => 'Monitoramento de fauna auxilia na redução de impactos ambientais',
-                'source' => 'Jornal Regional',
-                'published_at' => '2026-07-09',
-                'excerpt' => 'Conheça algumas das etapas realizadas durante o acompanhamento de fauna em áreas de intervenção.',
-                'image' => 'assets/images/clipping/clipping-fauna.jpg',
-                'sort_order' => 2,
-                'is_featured' => true,
-                'is_active' => true,
-            ]
-        );
-
-        Clipping::query()->updateOrCreate(
-            ['slug' => 'educacao-ambiental-aproxima-comunidades'],
-            [
-                'title' => 'Educação ambiental aproxima empresas e comunidades',
-                'source' => 'Revista Sustentável',
-                'published_at' => '2026-06-25',
-                'excerpt' => 'Ações educativas podem fortalecer o diálogo e ampliar a participação da comunidade.',
-                'image' => 'assets/images/clipping/clipping-educacao.jpg',
-                'sort_order' => 3,
-                'is_featured' => true,
-                'is_active' => true,
-            ]
-        );
     }
 }
