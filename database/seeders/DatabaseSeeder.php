@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             HomeContentSeeder::class,
             ClientClippingSeeder::class,
-            HomeContentSeeder::class
+            HomeContentSeeder::class,
+            AdminUserSeeder::class
         ]);
     }
 }
