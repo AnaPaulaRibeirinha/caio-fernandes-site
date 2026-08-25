@@ -179,7 +179,7 @@
 
                 {{-- Pessoa --}}
                 <img
-                    src="{{ asset('assets/images/hero/caio-fernandes.png') }}"
+                    src="{{ asset('assets/images/foto-png-caio.png') }}"
                     alt="Caio Fernandes, biólogo e consultor ambiental"
                     class="
                         absolute
@@ -200,7 +200,7 @@
                         lg:right-[11%]
                         lg:max-h-[745px]
 
-                        xl:left-[-82%]
+                        xl:left-[3%]
                         xl:max-h-[850px]
                     "
                 >

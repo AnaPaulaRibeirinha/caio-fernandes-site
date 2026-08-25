@@ -73,7 +73,7 @@ class HomeContentSeeder extends Seeder
         Statistic::query()->updateOrCreate(
             ['label' => 'De experiência na área ambiental'],
             [
-                'value' => '15 anos',
+                'value' => '20 anos',
                 'icon' => 'experience',
                 'sort_order' => 2,
                 'is_active' => true,

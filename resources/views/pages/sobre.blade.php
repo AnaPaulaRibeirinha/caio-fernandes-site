@@ -127,18 +127,13 @@
                         </p>
                     </div>
 
-                    <div
-                        class="
-                            mt-10 grid gap-5
-                            sm:grid-cols-2
-                        "
-                    >
+                    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        {{-- Formação 1 --}}
                         <div class="rounded-2xl bg-zinc-50 p-6">
                             <span
                                 class="
-                                    text-xs font-extrabold
-                                    uppercase tracking-wider
-                                    text-lime-700
+                                    text-xs font-extrabold uppercase
+                                    tracking-wider text-lime-700
                                 "
                             >
                                 Formação
@@ -147,40 +142,114 @@
                             <strong
                                 class="
                                     mt-3 block text-xl
-                                    font-extrabold text-zinc-950
+                                    font-extrabold text-zinc-900
                                 "
                             >
                                 Bacharel em Ciências Biológicas
                             </strong>
 
-                            <p class="mt-3 text-sm leading-6 text-zinc-600">
-                                Instituição de ensino e ano de conclusão.
+                            <p class="mt-3 text-sm leading-6 text-zinc-500">
+                                UNG · 2002
                             </p>
                         </div>
 
+                        {{-- Formação 2 --}}
                         <div class="rounded-2xl bg-zinc-50 p-6">
                             <span
                                 class="
-                                    text-xs font-extrabold
-                                    uppercase tracking-wider
-                                    text-lime-700
+                                    text-xs font-extrabold uppercase
+                                    tracking-wider text-lime-700
                                 "
                             >
-                                Registro
+                                Formação
                             </span>
 
                             <strong
                                 class="
                                     mt-3 block text-xl
-                                    font-extrabold text-zinc-950
+                                    font-extrabold text-zinc-900
                                 "
                             >
-                                CRBio 000000/00-D
+                                Especialização em Gestão
                             </strong>
 
-                            <p class="mt-3 text-sm leading-6 text-zinc-600">
-                                Registro profissional ativo no Conselho Regional
-                                de Biologia.
+                            <p class="mt-3 text-sm leading-6 text-zinc-500">
+                                IFPR · 2014
+                            </p>
+                        </div>
+
+                        {{-- Jornalismo --}}
+                        <div class="rounded-2xl bg-zinc-50 p-6">
+                            <span
+                                class="
+                                    text-xs font-extrabold uppercase
+                                    tracking-wider text-lime-700
+                                "
+                            >
+                                Formação
+                            </span>
+
+                            <strong
+                                class="
+                                    mt-3 block text-xl
+                                    font-extrabold text-zinc-900
+                                "
+                            >
+                                Jornalista
+                            </strong>
+
+                            <p class="mt-3 text-sm leading-6 text-zinc-500">
+                                Ministério do Trabalho · 2026
+                            </p>
+                        </div>
+
+                        {{-- CRBio --}}
+                        <div class="rounded-2xl bg-zinc-50 p-6">
+                            <span
+                                class="
+                                    text-xs font-extrabold uppercase
+                                    tracking-wider text-lime-700
+                                "
+                            >
+                                Registro profissional
+                            </span>
+
+                            <strong
+                                class="
+                                    mt-3 block text-xl
+                                    font-extrabold text-zinc-900
+                                "
+                            >
+                                CRBio 39092/01-D
+                            </strong>
+
+                            <p class="mt-3 text-sm leading-6 text-zinc-500">
+                                Registro profissional ativo.
+                            </p>
+                        </div>
+
+                        {{-- DRT --}}
+                        <div class="rounded-2xl bg-zinc-50 p-6">
+                            <span
+                                class="
+                                    text-xs font-extrabold uppercase
+                                    tracking-wider text-lime-700
+                                "
+                            >
+                                Registro profissional
+                            </span>
+
+                            <strong
+                                class="
+                                    mt-3 block text-xl
+                                    font-extrabold text-zinc-900
+                                "
+                            >
+                                DRT 0102375/SP
+                            </strong>
+
+                            <p class="mt-3 text-sm leading-6 text-zinc-500">
+                                Registro profissional de jornalista.
                             </p>
                         </div>
                     </div>

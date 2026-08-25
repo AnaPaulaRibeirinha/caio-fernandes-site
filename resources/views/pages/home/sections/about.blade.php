@@ -85,7 +85,7 @@
                         "
                     >
                         <span class="text-3xl font-black leading-none">
-                            15+
+                            20+
                         </span>
 
                         <span
@@ -276,7 +276,7 @@
                                 tracking-wider text-zinc-500
                             "
                         >
-                            Registro profissional
+                            Registros profissionais
                         </span>
 
                         <strong
@@ -285,7 +285,7 @@
                                 font-extrabold text-zinc-900
                             "
                         >
-                            CRBio 000000/00-D
+                            CRBio 39092/01-D <span class="text-zinc-300">•</span>  DRT 0102375/SP
                         </strong>
                     </div>
 

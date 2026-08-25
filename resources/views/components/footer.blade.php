@@ -554,8 +554,8 @@
 
             <div
                 class="
-                    inline-flex w-fit items-center
-                    gap-3 rounded-full
+                    flex w-fit flex-wrap items-center
+                    gap-x-4 gap-y-2 rounded-full
                     border border-white/10
                     bg-white/5 px-5 py-3
                 "
@@ -566,12 +566,23 @@
                         tracking-wider text-white/45
                     "
                 >
-                    Registro profissional
+                    Registros profissionais
                 </span>
 
-                <strong class="text-sm font-extrabold text-lime-300">
-                    CRBio 000000/00-D
-                </strong>
+                <div class="flex flex-wrap items-center gap-3">
+                    <strong class="text-sm font-extrabold text-lime-300">
+                        CRBio 39092/01-D
+                    </strong>
+
+                    <span
+                        aria-hidden="true"
+                        class="h-4 w-px bg-white/20"
+                    ></span>
+
+                    <strong class="text-sm font-extrabold text-lime-300">
+                        DRT  0102375/SP
+                    </strong>
+                </div>
             </div>
         </div>
 

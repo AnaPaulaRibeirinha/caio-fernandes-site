@@ -5,18 +5,50 @@
     <div class="container-site">
         <div class="flex h-24 items-center justify-between gap-8">
 
-            {{-- Logo --}}
-            <a
-                href="{{ route('home') }}"
-                class="relative z-50 flex shrink-0 items-center"
-                aria-label="Ir para a página inicial"
-            >
-                <img
-                    src="{{ asset('assets/images/logo/logo-caio-fernandes.png') }}"
-                    alt="Biólogo Caio Fernandes"
-                    class="h-auto w-[130px] object-contain"
+            {{-- Logos --}}
+            <div class="relative z-50 flex shrink-0 items-center gap-4">
+                <a
+                    href="{{ route('home') }}"
+                    class="flex items-center"
+                    aria-label="Ir para a página inicial"
                 >
-            </a>
+                    <img
+                        src="{{ asset('assets/images/logo/logo-caio-fernandes.png') }}"
+                        alt="Biólogo Caio Fernandes"
+                        class="
+                            h-auto w-[145px] object-contain
+                            sm:w-[160px]
+                            xl:w-[175px]
+                        "
+                    >
+                </a>
+
+                {{-- Separador --}}
+                <span
+                    aria-hidden="true"
+                    class="
+                        hidden h-10 w-px
+                        bg-zinc-300
+                        sm:block
+                    "
+                ></span>
+
+                <a
+                    href="{{ route('home') }}"
+                    class="hidden items-center sm:flex"
+                    aria-label="Território Animal"
+                >
+                    <img
+                        src="{{ asset('assets/images/logo/logo-territorio-animal.png') }}"
+                        alt="Território Animal"
+                        class="
+                            h-auto w-[70px] object-contain
+                            md:w-[78px]
+                            xl:w-[155px]
+                        "
+                    >
+                </a>
+            </div>
 
             {{-- Menu desktop --}}
             <nav
