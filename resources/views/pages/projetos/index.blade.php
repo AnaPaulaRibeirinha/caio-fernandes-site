@@ -72,93 +72,66 @@
     {{-- Projetos --}}
     <section class="bg-white py-20 lg:py-28">
         <div class="container-site">
-            {{-- Filtros visuais --}}
-            <div
-                class="
-                    mb-12 flex flex-wrap
-                    items-center gap-3
-                "
-            >
-                <button
-                    type="button"
-                    class="
-                        rounded-full bg-green-800
-                        px-5 py-3 text-sm
-                        font-extrabold text-white
-                    "
+            {{-- Filtros --}}
+            <div class="mb-12 flex flex-wrap items-center gap-3">
+                <a
+                    href="{{ route('projetos.index') }}"
+                    @class([
+                        'project-filter-button',
+                        '!border-green-800 !bg-green-800 !text-white' => !$category,
+                    ])
                 >
                     Todos
-                </button>
+                </a>
 
-                <button
-                    type="button"
-                    class="project-filter-button"
-                >
-                    Licenciamento
-                </button>
-
-                <button
-                    type="button"
-                    class="project-filter-button"
-                >
-                    Fauna
-                </button>
-
-                <button
-                    type="button"
-                    class="project-filter-button"
-                >
-                    Flora
-                </button>
-
-                <button
-                    type="button"
-                    class="project-filter-button"
-                >
-                    Educação ambiental
-                </button>
+                @foreach ($categories as $categoryOption)
+                    <a
+                        href="{{ route('projetos.index', [
+                            'category' => $categoryOption
+                        ]) }}"
+                        @class([
+                            'project-filter-button',
+                            '!border-green-800 !bg-green-800 !text-white'
+                                => $category === $categoryOption,
+                        ])
+                    >
+                        {{ $categoryOption }}
+                    </a>
+                @endforeach
             </div>
 
-            {{-- Grid --}}
+           {{-- Grid --}}
             <div class="grid gap-6 lg:grid-cols-2">
-                <x-project-card
-                    id="monitoramento-fauna"
-                    title="Monitoramento e manejo de fauna silvestre"
-                    description="Levantamento de espécies, acompanhamento de campo e definição de medidas para redução de impactos."
-                    image="assets/images/projects/projeto-fauna.jpg"
-                    category="Fauna"
-                    location="Sorocaba, SP"
-                    year="2026"
-                />
+                @forelse ($projects as $project)
+                    <x-project-card
+                        :id="$project->slug"
+                        :title="$project->title"
+                        :description="$project->short_description"
+                        :image="$project->cover_image"
+                        :category="$project->category"
+                        :location="$project->location"
+                        :year="$project->year"
+                        :url="route('projetos.show', $project->slug)"
+                    />
+                @empty
+                    <div
+                        class="
+                            col-span-full
+                            rounded-3xl
+                            bg-zinc-50
+                            px-6 py-16
+                            text-center
+                        "
+                    >
+                        <h2 class="text-xl font-black text-zinc-900">
+                            Nenhum projeto disponível
+                        </h2>
 
-                <x-project-card
-                    id="inventario-flora"
-                    title="Inventário e caracterização de vegetação"
-                    description="Identificação de espécies, avaliação ambiental e produção de informações técnicas para o projeto."
-                    image="assets/images/projects/projeto-flora.jpg"
-                    category="Flora"
-                    location="Itu, SP"
-                    year="2025"
-                />
-
-                <x-project-card
-                    id="educacao-ambiental"
-                    title="Programa de educação ambiental"
-                    description="Capacitação de colaboradores e atividades de conscientização com comunidades do entorno."
-                    image="assets/images/projects/projeto-educacao.jpg"
-                    category="Educação ambiental"
-                    location="Campinas, SP"
-                    year="2025"
-                />
-
-                <x-project-card
-                    title="Acompanhamento de licenciamento ambiental"
-                    description="Suporte técnico na organização documental, atendimento de exigências e acompanhamento do processo."
-                    image="assets/images/projects/projeto-licenciamento.jpg"
-                    category="Licenciamento"
-                    location="São Paulo, SP"
-                    year="2025"
-                />
+                        <p class="mt-2 text-sm text-zinc-500">
+                            Novos projetos serão adicionados em breve.
+                        </p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>

@@ -22,15 +22,36 @@
         aria-label="Ver projeto: {{ $title }}"
     >
         {{-- Imagem --}}
-        <img
-            src="{{ asset($image) }}"
-            alt="{{ $title }}"
-            class="
-                absolute inset-0 h-full w-full object-cover
-                transition duration-700 ease-out
-                group-hover:scale-105
-            "
-        >
+        @if ($image)
+            <img
+                src="{{ asset($image) }}"
+                alt="{{ $title }}"
+                class="
+                    h-full w-full
+                    object-cover
+                    transition duration-500
+                    group-hover:scale-105
+                "
+            >
+        @else
+            <div
+                class="
+                    flex h-full w-full
+                    items-center justify-center
+                    bg-green-950
+                "
+            >
+                <span
+                    class="
+                        text-5xl font-black
+                        tracking-[-0.08em]
+                        text-lime-300/30
+                    "
+                >
+                    CF
+                </span>
+            </div>
+        @endif
 
         {{-- Camada escura --}}
         <div

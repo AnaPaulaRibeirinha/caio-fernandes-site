@@ -49,17 +49,20 @@
 
             {{-- Conteúdo --}}
             <div>
-                <span
-                    class="
-                        inline-flex items-center gap-2
-                        text-xs font-extrabold uppercase
-                        tracking-[0.18em] text-lime-300
-                    "
-                >
-                    <span class="h-2 w-2 rounded-full bg-lime-300"></span>
+                <div class="flex flex-wrap items-center gap-3">
+                    <span
+                        class="
+                            inline-flex items-center gap-2
+                            text-xs font-extrabold uppercase
+                            tracking-[0.18em] text-lime-300
+                        "
+                    >
+                        <span class="h-2 w-2 rounded-full bg-lime-300"></span>
 
-                    Livro
-                </span>
+                        Autor do Livro
+                    </span>
+
+                </div>
 
                 <h2
                     class="

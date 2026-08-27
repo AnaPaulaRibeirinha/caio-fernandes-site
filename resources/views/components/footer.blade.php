@@ -1,11 +1,3 @@
-{{-- <footer class="border-t border-zinc-100 bg-white py-10">
-    <div class="container-site">
-        <p class="text-sm text-zinc-500">
-            © {{ date('Y') }} Caio Fernandes. Todos os direitos reservados.
-        </p>
-    </div>
-</footer> --}}
-
 <footer class="relative overflow-hidden bg-green-950 text-white">
     {{-- Transição arredondada --}}
     <div
@@ -485,14 +477,14 @@
                             </strong>
 
                             <a
-                                href="mailto:territorioanimal@gmail.com.br"
+                                href="mailto:territorioanimal@gmail.com"
                                 class="
                                     footer-contact-value
                                     break-all transition
                                     hover:text-lime-300
                                 "
                             >
-                                territorioanimal@gmail.com.br
+                                territorioanimal@gmail.com
                             </a>
                         </div>
                     </div>
@@ -532,57 +524,92 @@
             </div>
         </div>
 
-        {{-- Registro e frase --}}
+        {{-- Compromisso + registros + assinatura visual --}}
         <div
             class="
-                flex flex-col gap-5
+                grid gap-8
                 border-b border-white/10
-                py-8
-                sm:flex-row sm:items-center
-                sm:justify-between
+                py-10
+                lg:grid-cols-[1fr_auto]
+                lg:items-end
             "
         >
-            <p
-                class="
-                    max-w-2xl text-base
-                    font-semibold leading-7 text-white/75
-                "
-            >
-                Conectando ciência, responsabilidade e desenvolvimento
-                sustentável. Você Também é Responsável!
-            </p>
-
-            <div
-                class="
-                    flex w-fit flex-wrap items-center
-                    gap-x-4 gap-y-2 rounded-full
-                    border border-white/10
-                    bg-white/5 px-5 py-3
-                "
-            >
+            <div>
                 <span
                     class="
-                        text-xs font-bold uppercase
-                        tracking-wider text-white/45
+                        text-xs font-extrabold uppercase
+                        tracking-[0.16em] text-lime-300
                     "
                 >
-                    Registros profissionais
+                    Nosso compromisso
                 </span>
 
-                <div class="flex flex-wrap items-center gap-3">
-                    <strong class="text-sm font-extrabold text-lime-300">
-                        CRBio 39092/01-D
-                    </strong>
+                <p
+                    class="
+                        mt-3 max-w-2xl
+                        text-lg font-semibold
+                        leading-8 text-white/75
+                    "
+                >
+                    Conectando ciência, responsabilidade e desenvolvimento
+                    sustentável.
+                </p>
 
+                {{-- Registros --}}
+                <div
+                    class="
+                        mt-6 flex w-fit flex-wrap items-center
+                        gap-x-4 gap-y-2 rounded-full
+                        border border-white/10
+                        bg-white/5 px-5 py-3
+                    "
+                >
                     <span
-                        aria-hidden="true"
-                        class="h-4 w-px bg-white/20"
-                    ></span>
+                        class="
+                            text-xs font-bold uppercase
+                            tracking-wider text-white/45
+                        "
+                    >
+                        Registros profissionais
+                    </span>
 
-                    <strong class="text-sm font-extrabold text-lime-300">
-                        DRT  0102375/SP
-                    </strong>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <strong class="text-sm font-extrabold text-lime-300">
+                            CRBio 39092/01-D
+                        </strong>
+
+                        <span
+                            aria-hidden="true"
+                            class="h-4 w-px bg-white/20"
+                        ></span>
+
+                        <strong class="text-sm font-extrabold text-lime-300">
+                            DRT 0102375/SP
+                        </strong>
+                    </div>
                 </div>
+            </div>
+
+            {{-- Você também é responsável --}}
+            <div
+                class="
+                    flex justify-start
+                    lg:justify-end
+                "
+            >
+                <img
+                    src="{{ asset('assets/images/brand/voce-tambem-e-responsavel.png') }}"
+                    alt="Você também é responsável!"
+                    class="
+                        h-auto
+                        w-[280px]
+                        max-w-full
+                        object-contain
+                        opacity-90
+                        sm:w-[340px]
+                        lg:w-[390px]
+                    "
+                >
             </div>
         </div>
 
@@ -596,7 +623,7 @@
             "
         >
             <p>
-                © {{ date('Y') }} Caio Fernandes Soluções Ambientais.
+                © {{ date('Y') }} Caio Fernandes Soluções Ambientais. Programa Território Animal. 
                 Todos os direitos reservados.
             </p>
 
@@ -607,12 +634,7 @@
                     sm:gap-7
                 "
             >
-                <a
-                    href="#"
-                    class="transition hover:text-white"
-                >
-                    Política de Privacidade
-                </a>
+                
 
                 <p class="flex items-center gap-1.5">
                     Desenvolvido com

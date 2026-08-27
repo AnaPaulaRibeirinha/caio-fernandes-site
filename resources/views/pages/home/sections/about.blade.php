@@ -50,9 +50,9 @@
                             shadow-[0_30px_80px_rgba(24,24,27,0.12)]
                         "
                     >
-                        @if (file_exists(public_path('assets/images/about/caio-about.jpg')))
+                        @if (file_exists(public_path('assets/images/about/caio-about2.jpeg')))
                             <img
-                                src="{{ asset('assets/images/about/caio-about.jpg') }}"
+                                src="{{ asset('assets/images/about/caio-about2.jpeg') }}"
                                 alt="Caio Fernandes em atividade profissional"
                                 class="
                                     aspect-[4/5] h-full w-full
@@ -329,6 +329,40 @@
                 lg:px-16 lg:py-14
             "
         >
+            {{-- Assinatura "Você também é responsável" --}}
+            <div
+                aria-h  idden="true"
+                class="
+                    pointer-events-none
+                    absolute bottom-5 right-6
+                    z-10
+                    hidden
+                    lg:block
+                "
+            >
+                <img
+                    src="{{ asset('assets/images/brand/voce-tambem-e-responsavel.png') }}"
+                    alt=""
+                    class="
+                        w-[330px]
+                        xl:w-[400px]
+                        object-contain
+                        brightness-0 invert
+                        opacity-80
+                    "
+                >
+            </div>
+
+            {{-- detalhe decorativo --}}
+            <div
+                aria-hidden="true"
+                class="
+                    absolute -right-16 -top-20
+                    h-64 w-64 rounded-full
+                    border-[40px] border-lime-300/10
+                "
+            ></div>
+
             <div
                 class="
                     relative z-10 grid items-center gap-8

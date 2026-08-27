@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClippingController;
-
+use App\Http\Controllers\ProjectController;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\ClippingController as AdminClippingController;
 use App\Http\Controllers\Admin\StatisticController;
 
@@ -27,8 +27,11 @@ Route::view('/sobre', 'pages.sobre')
 Route::view('/servicos', 'pages.servicos.index')
     ->name('servicos.index');
 
-Route::view('/projetos', 'pages.projetos.index')
+Route::get('/projetos', [ProjectController::class, 'index'])
     ->name('projetos.index');
+
+Route::get('/projetos/{project:slug}', [ProjectController::class, 'show'])
+->name('projetos.show');
 
 Route::get('/clipping', [ClippingController::class, 'index'])
     ->name('clipping.index');
@@ -52,14 +55,14 @@ Route::middleware('auth')
         Route::resource('services', ServiceController::class)
             ->except('show');
 
-        Route::resource('projects', ProjectController::class)
+        Route::resource('projects', AdminProjectController::class)
             ->except('show');
+
         Route::resource('clippings', AdminClippingController::class)
             ->except('show');
+
         Route::resource('statistics', StatisticController::class)
             ->except('show');
-
-
     });
 
 require __DIR__.'/auth.php';

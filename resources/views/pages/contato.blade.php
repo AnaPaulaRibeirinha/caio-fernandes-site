@@ -232,7 +232,7 @@
                     </a>
 
                     <a
-                        href="mailto:territorioanimal@gmail.com.br"
+                        href="mailto:territorioanimal@gmail.com"
                         class="
                             group flex items-center gap-5
                             rounded-2xl border border-zinc-200
@@ -271,7 +271,7 @@
                                     text-lg text-zinc-950
                                 "
                             >
-                                territorioanimal@gmail.com.br
+                                territorioanimal@gmail.com
                             </strong>
                         </div>
                     </a>

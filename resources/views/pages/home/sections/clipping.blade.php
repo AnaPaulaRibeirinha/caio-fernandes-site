@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <@if ($clippings->isNotEmpty())
+        @if ($clippings->isNotEmpty())
             <div class="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                 <x-clipping-card
                     :title="$clippings->first()->title"
