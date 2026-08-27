@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Statistic;
 use Illuminate\View\View;
+use App\Models\Client;
 
 class DashboardController extends Controller
 {
@@ -16,6 +17,7 @@ class DashboardController extends Controller
         $totals = [
             'services' => Service::query()->count(),
             'projects' => Project::query()->count(),
+            'clients' => Client::query()->count(),
             'clippings' => Clipping::query()->count(),
             'statistics' => Statistic::query()->count(),
         ];

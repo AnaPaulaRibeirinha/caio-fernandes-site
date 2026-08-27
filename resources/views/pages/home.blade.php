@@ -21,6 +21,8 @@
 
     @include('pages.home.sections.projects')
 
+    @include('pages.home.sections.clients')
+
     @include('pages.home.sections.clipping')
 
     @include('pages.home.sections.contact-cta')

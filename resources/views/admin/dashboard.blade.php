@@ -68,7 +68,8 @@
     <div
         class="
             mt-8 grid gap-5
-            sm:grid-cols-2 xl:grid-cols-4
+            sm:grid-cols-2
+            xl:grid-cols-5
         "
     >
         @php
@@ -82,6 +83,11 @@
                     'label' => 'Projetos',
                     'value' => $totals['projects'],
                     'description' => 'Projetos cadastrados',
+                ],
+                [
+                    'label' => 'Clientes',
+                    'value' => $totals['clients'],
+                    'description' => 'Clientes cadastrados',
                 ],
                 [
                     'label' => 'Clipping',

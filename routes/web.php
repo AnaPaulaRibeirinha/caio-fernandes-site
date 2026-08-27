@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClippingController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Admin\ClientController;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -62,6 +63,9 @@ Route::middleware('auth')
             ->except('show');
 
         Route::resource('statistics', StatisticController::class)
+            ->except('show');
+
+        Route::resource('clients', ClientController::class)
             ->except('show');
     });
 
