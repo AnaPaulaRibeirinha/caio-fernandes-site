@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Statistic;
 use Illuminate\View\View;
+use App\Models\Client;
 
 class HomeController extends Controller
 {
@@ -40,12 +41,20 @@ class HomeController extends Controller
             ->orderByDesc('published_at')
             ->limit(3)
             ->get();
+        
+        $clients = Client::query()
+            ->where('is_active', true)
+            ->where('is_featured', true)
+            ->orderBy('sort_order')
+            ->orderBy('name')
+            ->get();
 
         return view('pages.home', compact(
             'services',
             'statistics',
             'projects',
             'clippings',
+            'clients',
         ));
     }
 }
