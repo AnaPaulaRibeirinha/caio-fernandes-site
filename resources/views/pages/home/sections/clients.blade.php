@@ -181,7 +181,7 @@
                         >
                             @if ($client->logo)
                                 <img
-                                    src="{{ asset('storage/' . $client->logo) }}"
+                                    src="{{  asset($client->logo) }}"
                                     alt="{{ $client->name }}"
                                     class="
                                         max-h-20

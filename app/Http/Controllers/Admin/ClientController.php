@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreClientRequest;
 use App\Http\Requests\Admin\UpdateClientRequest;
 use App\Models\Client;
+use App\Support\PublicUpload;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ClientController extends Controller
@@ -57,9 +57,11 @@ class ClientController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('logo')) {
-            $data['logo'] = $request
-                ->file('logo')
-                ->store('clients', 'public');
+            $data['logo'] = PublicUpload::store(
+                $request->file('logo'),
+                'clients',
+                'client'
+            );
         }
 
         $data['is_featured'] =
@@ -68,7 +70,7 @@ class ClientController extends Controller
         $data['is_active'] =
             $request->boolean('is_active');
 
-        Client::create($data);
+        Client::query()->create($data);
 
         return redirect()
             ->route('admin.clients.index')
@@ -90,16 +92,19 @@ class ClientController extends Controller
             $request->boolean('remove_logo')
             && !$request->hasFile('logo')
         ) {
-            $this->deleteLogo($client->logo);
+            PublicUpload::delete($client->logo);
+
             $data['logo'] = null;
         }
 
         if ($request->hasFile('logo')) {
-            $this->deleteLogo($client->logo);
+            PublicUpload::delete($client->logo);
 
-            $data['logo'] = $request
-                ->file('logo')
-                ->store('clients', 'public');
+            $data['logo'] = PublicUpload::store(
+                $request->file('logo'),
+                'clients',
+                'client'
+            );
         }
 
         unset($data['remove_logo']);
@@ -119,23 +124,12 @@ class ClientController extends Controller
 
     public function destroy(Client $client): RedirectResponse
     {
-        $this->deleteLogo($client->logo);
+        PublicUpload::delete($client->logo);
 
         $client->delete();
 
         return redirect()
             ->route('admin.clients.index')
             ->with('success', 'Cliente removido com sucesso.');
-    }
-
-    private function deleteLogo(?string $logo): void
-    {
-        if (!$logo) {
-            return;
-        }
-
-        if (Storage::disk('public')->exists($logo)) {
-            Storage::disk('public')->delete($logo);
-        }
     }
 }

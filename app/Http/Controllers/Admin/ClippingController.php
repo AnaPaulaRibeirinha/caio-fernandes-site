@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreClippingRequest;
 use App\Http\Requests\Admin\UpdateClippingRequest;
 use App\Models\Clipping;
+use App\Support\PublicUpload;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -67,14 +67,16 @@ class ClippingController extends Controller
     public function store(
         StoreClippingRequest $request
     ): RedirectResponse {
-        $data = $this->prepareData($request->validated());
+        $data = $this->prepareData(
+            $request->validated()
+        );
 
         if ($request->hasFile('image')) {
-            $path = $request
-                ->file('image')
-                ->store('clippings', 'public');
-
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = PublicUpload::store(
+                $request->file('image'),
+                'clippings',
+                'clipping'
+            );
         }
 
         Clipping::query()->create($data);
@@ -102,18 +104,19 @@ class ClippingController extends Controller
             $request->boolean('remove_image')
             && !$request->hasFile('image')
         ) {
-            $this->deleteImage($clipping->image);
+            PublicUpload::delete($clipping->image);
+
             $data['image'] = null;
         }
 
         if ($request->hasFile('image')) {
-            $this->deleteImage($clipping->image);
+            PublicUpload::delete($clipping->image);
 
-            $path = $request
-                ->file('image')
-                ->store('clippings', 'public');
-
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = PublicUpload::store(
+                $request->file('image'),
+                'clippings',
+                'clipping'
+            );
         }
 
         unset($data['remove_image']);
@@ -127,7 +130,7 @@ class ClippingController extends Controller
 
     public function destroy(Clipping $clipping): RedirectResponse
     {
-        $this->deleteImage($clipping->image);
+        PublicUpload::delete($clipping->image);
 
         $clipping->delete();
 
@@ -191,26 +194,5 @@ class ClippingController extends Controller
         }
 
         return $slug;
-    }
-
-    private function deleteImage(?string $image): void
-    {
-        if (!$image) {
-            return;
-        }
-
-        /*
-         * Imagens da pasta public/assets são permanentes.
-         * Só apagamos uploads salvos em public/storage.
-         */
-        if (!Str::startsWith($image, 'storage/')) {
-            return;
-        }
-
-        $storagePath = Str::after($image, 'storage/');
-
-        if (Storage::disk('public')->exists($storagePath)) {
-            Storage::disk('public')->delete($storagePath);
-        }
     }
 }

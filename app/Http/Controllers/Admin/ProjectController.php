@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreProjectRequest;
 use App\Http\Requests\Admin\UpdateProjectRequest;
 use App\Models\Project;
+use App\Support\PublicUpload;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -75,14 +75,16 @@ class ProjectController extends Controller
     public function store(
         StoreProjectRequest $request
     ): RedirectResponse {
-        $data = $this->prepareData($request->validated());
+        $data = $this->prepareData(
+            $request->validated()
+        );
 
         if ($request->hasFile('cover_image')) {
-            $path = $request
-                ->file('cover_image')
-                ->store('projects', 'public');
-
-            $data['cover_image'] = 'storage/' . $path;
+            $data['cover_image'] = PublicUpload::store(
+                $request->file('cover_image'),
+                'projects',
+                'project'
+            );
         }
 
         Project::query()->create($data);
@@ -110,18 +112,19 @@ class ProjectController extends Controller
             $request->boolean('remove_cover_image')
             && !$request->hasFile('cover_image')
         ) {
-            $this->deleteCoverImage($project->cover_image);
+            PublicUpload::delete($project->cover_image);
+
             $data['cover_image'] = null;
         }
 
         if ($request->hasFile('cover_image')) {
-            $this->deleteCoverImage($project->cover_image);
+            PublicUpload::delete($project->cover_image);
 
-            $path = $request
-                ->file('cover_image')
-                ->store('projects', 'public');
-
-            $data['cover_image'] = 'storage/' . $path;
+            $data['cover_image'] = PublicUpload::store(
+                $request->file('cover_image'),
+                'projects',
+                'project'
+            );
         }
 
         unset($data['remove_cover_image']);
@@ -135,7 +138,7 @@ class ProjectController extends Controller
 
     public function destroy(Project $project): RedirectResponse
     {
-        $this->deleteCoverImage($project->cover_image);
+        PublicUpload::delete($project->cover_image);
 
         $project->delete();
 
@@ -187,26 +190,5 @@ class ProjectController extends Controller
         }
 
         return $slug;
-    }
-
-    private function deleteCoverImage(?string $coverImage): void
-    {
-        if (!$coverImage) {
-            return;
-        }
-
-        /*
-         * Não remove as imagens estáticas usadas inicialmente pelo seeder.
-         * Somente arquivos que estão dentro de public/storage.
-         */
-        if (!Str::startsWith($coverImage, 'storage/')) {
-            return;
-        }
-
-        $storagePath = Str::after($coverImage, 'storage/');
-
-        if (Storage::disk('public')->exists($storagePath)) {
-            Storage::disk('public')->delete($storagePath);
-        }
     }
 }
