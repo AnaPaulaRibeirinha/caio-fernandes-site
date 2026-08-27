@@ -170,7 +170,7 @@
                                     font-extrabold text-zinc-900
                                 "
                             >
-                                Especialização em Gestão
+                                Especialização em Gestão Ambiental
                             </strong>
 
                             <p class="mt-3 text-sm leading-6 text-zinc-500">
